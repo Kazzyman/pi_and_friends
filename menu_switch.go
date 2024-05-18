@@ -1,14 +1,40 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"io/ioutil"
+	"math"
+	"math/big"
 	"os"
+	"strconv"
 	"time"
 )
 
 func menu_switch(filenameOfThisFile string) {
 	switch selection { // if selection == 2 then handel per case 2: etc.
+
+	case 16: // Monte Carlo method (added May 18 2024)
+		reader := bufio.NewReader(os.Stdin)
+		fmt.Print("Enter the grid size to be used (10000 will give an acceptable result in about 21s) : ")
+		input, _ := reader.ReadString('\n')
+		gridSize, err := strconv.Atoi(input[:len(input)-1])
+		if err != nil {
+			fmt.Println("Invalid input, please enter an integer.")
+			return
+		}
+		fmt.Printf("Size of the grid has been set to: %d\n", gridSize)
+		if gridSize > 1000 {
+			fmt.Println("working ...")
+		}
+		piApprox := GridPi(gridSize)
+		fmt.Printf("Approximated Pi as big float: %s\n", piApprox.Text('f', 30))
+		piApproxFloat64, _ := piApprox.Float64() // Convert piApprox to a float64 type
+		fmt.Printf("Approximated Pi as float64:   %f\n", piApproxFloat64)
+		piFromMathLib := math.Pi                       // Obtain Pi from math library
+		piFromMathLibBF := big.NewFloat(piFromMathLib) // Create a big float object version of Pi from math library
+		fmt.Printf("Pi from Math Library:         %s\n", piFromMathLibBF.Text('f', 30))
+		fmt.Printf("Difference: %f\n", math.Abs(piApproxFloat64-math.Pi))
 
 	case 999:
 		deleteAllLogFiles()

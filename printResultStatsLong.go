@@ -96,6 +96,18 @@ func printResultStatsLong(sumBig *big.Float, precision int, useAlternateFile str
 				check(err8prslc2c)
 			}
 			fileHandleBBPF.Close()
+		} else if useAlternateFile == "MonteCarlo" {
+			fileHandleMonte, err1prslc2c := os.OpenFile("dataLog-From_Monte_Method_lengthy_prints.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600) // append to file
+			check(err1prslc2c)                                                                                                                     // ... gets a file handle to dataLog-From_calculate-pi-and-friends.txt
+			defer fileHandleMonte.Close()                                                                                                          // It’s idiomatic to defer a Close immediately after opening a file.
+			_, err2prslc2c := fmt.Fprintf(fileHandleMonte, "\n\nThese are the %d verified digits we have calculated via Monte: \n", copyOfLastPosition)
+			check(err2prslc2c)
+			for _, oneChar := range stringVerOfCorrectDigits {
+				// fmt.Print(oneChar) // to the console // the whole point of using an alternate file is to not clutter up the console or the default file
+				_, err8prslc2c := fmt.Fprint(fileHandleMonte, oneChar) // to a file
+				check(err8prslc2c)
+			}
+			fileHandleMonte.Close()
 		} else if useAlternateFile == "AM" {
 			fileHandleAM, err1prslc2c := os.OpenFile("dataLog-From_AM_Method_lengthy_prints.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600) // append to file
 			check(err1prslc2c)                                                                                                               // ... gets a file handle to dataLog-From_calculate-pi-and-friends.txt
@@ -222,6 +234,22 @@ func printResultStatsLong(sumBig *big.Float, precision int, useAlternateFile str
 		defer fileHandleDefault.Close()                                                                                                // It’s idiomatic to defer a Close immediately after opening a file.
 		Hostname, _ := os.Hostname()
 		_, err0 := fmt.Fprintf(fileHandleDefault, "\n  -- Gauss–Legendre -- selection #%d on %s \n", selection, Hostname)
+		check(err0)
+		current_time := time.Now()
+		_, err6 := fmt.Fprint(fileHandleDefault, "was run on: ", current_time.Format(time.ANSIC), "\n")
+		check(err6)
+		_, err5 := fmt.Fprintf(fileHandleDefault, "%d was total Iterations\n", arg01)
+		check(err5)
+		_, err7 := fmt.Fprintf(fileHandleDefault, "Total run was %s \n ", TotalRun)
+		check(err7)
+		fileHandleDefault.Close()
+
+	} else if useAlternateFile == "MonteCarlo" {
+		fileHandleDefault, err1 := os.OpenFile("dataLog-From_calculate-pi-and-friends.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600) // append to file
+		check(err1)                                                                                                                    // ... gets a file handle to dataLog-From_calculate-pi-and-friends.txt
+		defer fileHandleDefault.Close()                                                                                                // It’s idiomatic to defer a Close immediately after opening a file.
+		Hostname, _ := os.Hostname()
+		_, err0 := fmt.Fprintf(fileHandleDefault, "\n  -- Monte -- selection #%d on %s \n", selection, Hostname)
 		check(err0)
 		current_time := time.Now()
 		_, err6 := fmt.Fprint(fileHandleDefault, "was run on: ", current_time.Format(time.ANSIC), "\n")

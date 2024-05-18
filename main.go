@@ -4,7 +4,7 @@ package main
 
 // The initial inspiration for all of this was : Veritassium https://youtu.be/gMlf1ELvRzc?list=LL
 /*
-   Go.lang is a relatively-new general-purpose freely-avialable programming language devoped by google.
+   Go.lang is a relatively-new general-purpose freely-available programming language developed by google.
 
    One can obtain the Go Compiler from : https://go.dev/dl/
 */
@@ -49,7 +49,7 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 	Windows variant */
 
 	match2 := re2.FindStringSubmatch(filenameOfThisFile) // grab the stuff between win- and .go (or Unix- and .go) in the name of this file
-	SansVerOfNameOfThisFile := "string"                  // this var, having been initialize to "string", is of type string
+	SansVerOfNameOfThisFile := "pi-main"                 // this var, having been initialize to "string", is of type string
 	if len(match2) >= 2 {
 
 		// /* Unix variant
@@ -64,14 +64,14 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 		fmt.Println("SansVerOfNameOfThisFile via match2 not found in main")
 	}
 
-	for 1 == 1 {
+	for {
 		DisplayMenus(totalLines, nonEmptyLines, filenameOfThisFile, SansVerOfNameOfThisFile)
 		fmt.Println(colorRed, "Finished. Hit Enter to redisplay the Main Menu", colorReset) // this will be the last line of every case #:
 		var JustToPauseTheLoop int
 
 		// /* Unix variant
 		fmt.Scanf("%d", &JustToPauseTheLoop) // must pause the endless loop after every switch case to prevent menu redisplay over results
-		// fmt.Scan(&JustToPauseTheLoop) // Scan() would work as a pause, but it requies data input to continue, so we use a Scanf() instead
+		// fmt.Scan(&JustToPauseTheLoop) // Scan() would work as a pause, but it requires data input to continue, so we use a Scanf() instead
 		// Unix variant */
 		//
 		/* Windows variant
