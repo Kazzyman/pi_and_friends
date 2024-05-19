@@ -36,7 +36,7 @@ func DisplayPythagorean(selection int) { // case 11:
 	fmt.Println(" a\u00b2 + 2ab + b\u00b2 = 2ab + c\u00b2 ")
 	fmt.Println("       a\u00b2 + b\u00b2 = c\u00b2 \n", colorReset)
 	fmt.Println("... proves the Pythagorean per Garfield; though, obviously, many other proofs do exist.\n\n")
-	fmt.Println("Select 12 at menu to display prior results")
+	fmt.Println("Select 212 at menu to display prior results")
 }
 func DisplayPythagoreanCode() { // case 31:
 	var DisplayPythagoreanRune = `
@@ -77,7 +77,7 @@ fmt.Println("        (a+b)\u00b2 = 2ab + c\u00b2 ")
 fmt.Println(" a\u00b2 + 2ab + b\u00b2 = 2ab + c\u00b2 ")
 fmt.Println("       a\u00b2 + b\u00b2 = c\u00b2 \n", string(colorReset))
 fmt.Println("... proves the Pythagorean per Garfield; though, obviously, many other proofs do exist.\n\n")
-    fmt.Println("Select 12 at menu to display prior results")
+    fmt.Println("Select 212 at menu to display prior results")
 }
 // By Richard Woolley
  `

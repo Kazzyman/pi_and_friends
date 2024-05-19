@@ -14,7 +14,8 @@ func getTheNameOfThisSourceCodeFile() (filenameOfThisFile string) { // filenameO
 	pathNameOfMeAsExe := os.Args[0] // the objective is to find this source code file by name from the command line Args
 	fmt.Println(pathNameOfMeAsExe)
 	// /* Unix variant
-	re := regexp.MustCompile(`Unix(.*?)2023`)
+	// re := regexp.MustCompile(`Unix(.*?)2023`)
+	re := regexp.MustCompile(`/Users(.*?)pi`)
 	// Unix variant */
 	//
 	/* Windows variant
@@ -44,12 +45,64 @@ func getTheNameOfThisSourceCodeFile() (filenameOfThisFile string) { // filenameO
 
 // --AMFreportSLOCstats01a
 func reportSLOCstats(filenameOfThisFile string) (totalLines, nonEmptyLines int) { // returns two values of type int
+	/*
+					cwd, err := os.Getwd()
+					if err != nil {
+						fmt.Printf("Error getting current working directory: %v\n", err)
+					} else {
+						fmt.Printf("Current working directory: %s\n", cwd)
+					}
+			// this was not an issue
+
+		data, err := ioutil.ReadFile(filenameOfThisFile)
+		if err != nil {
+			fmt.Printf("File content: %s\n", string(data))
+			log.Fatalf("Error reading file via ioutil.ReadFile: %v\n", err)
+			// this too produced an error (prior to my locating the actual mistake I had made)
+		}
+
+	*/
+
+	if _, err := os.Stat(filenameOfThisFile); os.IsNotExist(err) {
+		fmt.Printf("File does not exist per os.Stat: %s\n", filenameOfThisFile)
+	} else if os.IsPermission(err) {
+		fmt.Printf("Permission denied per os.Stat: %s\n", filenameOfThisFile)
+	} else if err != nil {
+		fmt.Printf("Error stating file per os.Stat: %v\n", err)
+	} else {
+		fmt.Printf("%s File exists and is accessible per os.Stat\n", filenameOfThisFile)
+	}
+
 	file, err := os.Open(filenameOfThisFile) // open this source code file and get a handle to it
+
 	if err != nil {
 		fmt.Println(err)
+		fmt.Println("rick fucked up!")
 		log.Fatal(err)
 	}
+
+	if err != nil {
+		if os.IsNotExist(err) {
+			fmt.Printf("File does not exist: %s\n", filenameOfThisFile)
+			fmt.Println(err)
+			fmt.Println("rick fucked something up! Because File is reported to not exist")
+			log.Fatal(err)
+		} else if os.IsPermission(err) {
+			fmt.Printf("Permission denied: %s\n", filenameOfThisFile)
+			fmt.Println(err)
+			fmt.Println("rick fucked up! Because Permission denied")
+			log.Fatal(err)
+		} else {
+			fmt.Printf("Some other Error opening file: %v\n", err)
+			fmt.Println(err)
+			fmt.Println("rick just fucked something up!")
+			log.Fatal(err)
+		}
+		// return
+	}
+
 	defer file.Close() // It’s idiomatic to defer a Close immediately after opening a file.
+
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if scanner.Err() != nil {
@@ -64,3 +117,47 @@ func reportSLOCstats(filenameOfThisFile string) (totalLines, nonEmptyLines int) 
 	}
 	return totalLines, nonEmptyLines
 } // --AMFreportSLOCstats01b -- AMFmainB
+
+func reportSLOCstatsOld(filenameOfThisFile string) (totalLines, nonEmptyLines int) {
+	// Check file existence and permissions
+	fileInfo, err := os.Stat(filenameOfThisFile)
+	if err != nil {
+		if os.IsNotExist(err) {
+			log.Fatalf("File does not exist: %s\n", filenameOfThisFile)
+		} else if os.IsPermission(err) {
+			log.Fatalf("Permission denied: %s\n", filenameOfThisFile)
+		} else {
+			log.Fatalf("Error stating file: %v\n", err)
+		}
+	} else {
+		fmt.Printf("File exists and is accessible: %s\n", filenameOfThisFile)
+		fmt.Printf("File size: %d bytes\n", fileInfo.Size())
+		fmt.Printf("File mode: %s\n", fileInfo.Mode())
+		fmt.Printf("File modified: %s\n", fileInfo.ModTime())
+	}
+
+	// Open the file
+	file, err := os.Open(filenameOfThisFile)
+	if err != nil {
+		log.Fatalf("Error opening file: %v\n", err)
+	}
+	defer file.Close() // Ensure the file is closed
+
+	// Create a scanner to read the file line by line
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		totalLines++
+		line := strings.TrimSpace(scanner.Text())
+		if line != "" {
+			nonEmptyLines++
+		}
+	}
+
+	// Check for errors during scanning
+	if err := scanner.Err(); err != nil {
+		log.Fatalf("Error reading file: %v\n", err)
+	}
+
+	// Return the results
+	return totalLines, nonEmptyLines
+}

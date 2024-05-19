@@ -19,7 +19,6 @@ const colorWhite = "\033[37m"
 var iterationsForMonte16i int
 var iterationsForMonte16j int
 var iterationsForMonteTotal int
-var TotalIterations int
 var four float64 // is initialized to 4 where needed
 var π float64    // a var can be any character, as in this Pi symbol/character
 var LinesPerSecond float64

@@ -20,28 +20,28 @@ func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNa
 	fmt.Println(colorRed, "Enter your selection from below, or 96 for notes on using this app\n", colorReset)
 	fmt.Print("2: ", colorCyan, " Pi: ", colorReset, "Bailey–Borwein–Plouffe formula for π, discovered in 1995", colorYellow)
 	fmt.Print("\n", colorReset)
-	fmt.Println("        ---> uses big.Float types, and also uses channels: GOMAXPROCS(numCPU)\n")
+	fmt.Printf("        %s---> uses big.Float types%s, and also uses channels: GOMAXPROCS(numCPU)\n\n", colorYellow, colorReset)
 
 	fmt.Print("14:", colorCyan, " Pi: ", colorReset, "modified Archimedes' method using Go's math/big objects: 3,012 digits\n")
-	fmt.Println("        ---> uses big.Float (Richard's favorite: 'cause it's fully understood)")
+	fmt.Printf("        %s---> uses big.Float (Richard's favorite: 'cause it's fully understood)%s\n", colorYellow, colorReset)
 	fmt.Print("         (employs the Pythagorean, ", colorGreen, "ENTER '11'", colorReset, " for a review of its derivation)\n\n")
 
 	fmt.Print("15:", colorCyan, " Pi: ", colorReset, "Chudnovsky method,", colorYellow, " state of the art! ", colorReset, "But God only knows how it works\n")
-	fmt.Println("        ---> uses big.Float types", colorYellow, "Gold Standard! \n", colorReset)
+	fmt.Println(colorYellow, "       ---> uses big.Float types    and is the Gold Standard! \n", colorReset)
 
 	fmt.Print("5: ", colorCyan, " Pi: ", colorReset, "An infinite series by Indian astronomer Nilakantha Somayaji circa 1500\n")
-	fmt.Println("        ---> uses big.Floats types         AKA: Keļallur Comatiri: 1444–1545")
+	fmt.Println(colorYellow, "       ---> uses big.Floats types", colorReset, "        AKA: Keļallur Comatiri: 1444–1545")
 	fmt.Println("     π = 3 + 4/(2*3*4) - 4/(4*5*6) + 4/(6*7*8) - 4/(8*9*10) ...")
 	fmt.Println("         ... the equation can be found in an ancient Sanskrit verse\n")
 
 	fmt.Println("6:", colorCyan, "Pi:", colorReset, "Gottfried Wilhelm Leibniz, late 17th century ( and by Isaac Newton )")
 	fmt.Println("     π = 4 * ( 1 - 1/3 + 1/5 - 1/7 + 1/9 - 1/11 + 1/13 ...")
-	fmt.Println("       Four-Billion iterations to be executed ------ using float64 types <---")
+	fmt.Printf("       Four-Billion iterations to be executed ------ using %sfloat64 types <---%s\n", colorYellow, colorReset)
 	fmt.Println("       10 digits of π : in about ten seconds \n")
 
 	fmt.Println("7:", colorCyan, "Pi:", colorReset, "The Gregory-Leibniz series circa 1676")
 	fmt.Println("     π = (4/1) - (4/3) + (4/5) - (4/7) + (4/9) - (4/11) ...")
-	fmt.Println("       Three-Hundred-Million iterations are executed ----- float64 types <---")
+	fmt.Printf("       Three-Hundred-Million iterations are executed ----- %sfloat64 types <---%s\n", colorYellow, colorReset)
 	fmt.Println("       9 digits of π : under 4 seconds\n")
 
 	fmt.Println(colorYellow, "12: Display the Stats and Utilities Menu \n")
@@ -79,7 +79,7 @@ func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNa
 		fmt.Println("        9 digits of π -- a billion loops, in seconds -- option for 10 digits\n")
 
 		fmt.Println("16:", colorGreen, "Pi:", colorReset, "Grid version of the Monte Carlo method with big.Float types")
-		fmt.Println("      Richard's second most favorite method after 14\n", colorCyan)
+		fmt.Println(colorYellow, "      ---> uses big.Float types, Richard's 2nd most-favorite method after 14\n", colorCyan)
 
 		fmt.Println("19:", colorGreen, "Pi:", colorReset, "Open the 'Spigot' algorithm, instantly bakes way too much pie :)")
 		fmt.Println("      ... Can easily spit out 10,000 digits of π !!!!!\n", colorCyan)
@@ -92,7 +92,7 @@ func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNa
 			colorReset)
 		fmt.Println("42:", colorGreen, "Pi:", colorReset, "BBP formula to 46 digits")
 		fmt.Println("44:", colorGreen, "Pi:", colorReset, "via Leibniz method in one billion iterations [runs a while]")
-		fmt.Println("50:", colorGreen, "Pi:", colorReset, "comparison of float64 and big.Float types \n\n")
+		fmt.Printf("50:  %sPi:%s  comparison of float64 %svs%s big.Float types%s \n\n", colorGreen, colorCyan, colorYellow, colorCyan, colorReset)
 
 		fmt.Println(colorYellow, "12: Display Stats and Utilities Menu  ")
 
