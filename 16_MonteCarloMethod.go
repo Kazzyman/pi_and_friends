@@ -1,11 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"math/big"
 	"time"
 )
 
-// GridPi approximates the value of Pi using a grid-based method with big.Float
+// GridPi approximates the value of Pi using a grid-based method with big.Float types
 /*
 	The realization that the area of a circle can be determined from its circumference and diameter, and consequently the value of
 	π, has roots in ancient geometry and the study of ratios.
@@ -87,6 +88,7 @@ import (
 	into a grid of smaller squares and then separating them into two sets. One set will be comprised of all those that fall outside the
 	inscribed quarter circle, and the other set will be of those squares that fall inside the inscribed quarter circle.
 */
+// case 16: // -- MonteA
 func GridPi(gridSize int) *big.Float {
 	start := time.Now()
 	insideCircle := big.NewInt(0)
@@ -107,10 +109,11 @@ func GridPi(gridSize int) *big.Float {
 			if sum.Cmp(big.NewFloat(1.0)) <= 0 {
 				insideCircle.Add(insideCircle, big.NewInt(1))
 			}
+			iterationsForMonte16j = j
 		}
-		iterationsForMonte16 = i
+		iterationsForMonte16i = i
 	}
-
+	iterationsForMonteTotal = iterationsForMonte16j * iterationsForMonte16i
 	// Calculate Pi approximation
 	four := big.NewFloat(4.0)
 	insideCircleF := new(big.Float).SetInt(insideCircle)
@@ -121,8 +124,10 @@ func GridPi(gridSize int) *big.Float {
 	t := time.Now()
 	elapsed := t.Sub(start)
 	TotalRun := elapsed.String() // cast time durations to a String type for Fprintf "formatted print"
-	// iters := 99
-	printResultStatsLong(piApprox, 0, "MonteCarlo", iterationsForMonte16, TotalRun, selection)
+	printResultStatsLong(piApprox, 0, "MonteCarlo", iterationsForMonteTotal, TotalRun, selection)
 
+	fmt.Printf("Total iterations: %d, Elapsed time: %s \n\n", iterationsForMonteTotal, TotalRun)
 	return piApprox
 }
+
+// End of case 16: // -- MonteB

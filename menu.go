@@ -8,8 +8,6 @@ import (
 // This next func WAS extremely long, CONTAINED all menus, and also a very long switch statement -- AMFmenusA
 func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNameOfThisFile string) {
 
-	pages_of_code := totalLines / 49
-
 	date := time.Now() // only used here once as date.Format("(01-02-2006)") at the top of the main menu **** NOT FOR RELEASE **********
 	// *********** the above line will need to be commented out for release, and the date below entered manually ************************
 
@@ -52,8 +50,7 @@ func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNa
 
 	fmt.Println("47: to End/Exit", colorCyan, "tSLOC =", totalLines, "eSLOC =", nonEmptyLines, colorPurple,
 		"\u00a9 2023, by Richard Hart Woolley", colorReset)
-	fmt.Println(colorCyan, "                That is", pages_of_code, "pages of code at 49 lines per page\n", colorReset)
-	fmt.Print("Enter your selection, 1 -> x", colorRed, " (IS THIS WINDOW MAXIMIZED?  Well, do it!)\n", colorReset)
+	fmt.Print("\nEnter your selection, 1 -> x", colorRed, " (IS THIS WINDOW MAXIMIZED?  Well, do it!)\n", colorReset)
 
 	fmt.Scan(&selection) // Pause and obtain Selection
 
@@ -80,6 +77,10 @@ func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNa
 		fmt.Println("      π = 2 * ((2/1)*(2/3)) * ((4/3)*(4/5)) * ((6/5)*(6/7)) ... ")
 		fmt.Println("        One-Billion iterations will be executed; option for 40 billion")
 		fmt.Println("        9 digits of π -- a billion loops, in seconds -- option for 10 digits\n")
+
+		fmt.Println("16:", colorGreen, "Pi:", colorReset, "Grid version of the Monte Carlo method with big.Float types")
+		fmt.Println("      Richard's second most favorite method after 14\n", colorCyan)
+
 		fmt.Println("19:", colorGreen, "Pi:", colorReset, "Open the 'Spigot' algorithm, instantly bakes way too much pie :)")
 		fmt.Println("      ... Can easily spit out 10,000 digits of π !!!!!\n", colorCyan)
 

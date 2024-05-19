@@ -16,7 +16,7 @@ func menu_switch(filenameOfThisFile string) {
 
 	case 16: // Monte Carlo method (added May 18 2024)
 		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("Enter the grid size to be used (10000 will give an acceptable result in about 21s) : ")
+		fmt.Print("Enter the grid size to be used (10000 will give 4 digits in about 21s) : ")
 		input, _ := reader.ReadString('\n')
 		gridSize, err := strconv.Atoi(input[:len(input)-1])
 		if err != nil {
@@ -24,7 +24,7 @@ func menu_switch(filenameOfThisFile string) {
 			return
 		}
 		fmt.Printf("Size of the grid has been set to: %d\n", gridSize)
-		if gridSize > 1000 {
+		if gridSize > 3000 {
 			fmt.Println("working ...")
 		}
 		piApprox := GridPi(gridSize)
@@ -35,6 +35,8 @@ func menu_switch(filenameOfThisFile string) {
 		piFromMathLibBF := big.NewFloat(piFromMathLib) // Create a big float object version of Pi from math library
 		fmt.Printf("Pi from Math Library:         %s\n", piFromMathLibBF.Text('f', 30))
 		fmt.Printf("Difference: %f\n", math.Abs(piApproxFloat64-math.Pi))
+	case 36:
+		ShowMonteCarlo()
 
 	case 999:
 		deleteAllLogFiles()

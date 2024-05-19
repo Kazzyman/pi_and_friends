@@ -16,7 +16,9 @@ const colorPurple = "\033[35m"
 const colorCyan = "\033[36m"
 const colorWhite = "\033[37m"
 
-var iterationsForMonte16 int
+var iterationsForMonte16i int
+var iterationsForMonte16j int
+var iterationsForMonteTotal int
 var TotalIterations int
 var four float64 // is initialized to 4 where needed
 var π float64    // a var can be any character, as in this Pi symbol/character

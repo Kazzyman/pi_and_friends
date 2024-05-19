@@ -18,6 +18,11 @@ func Show_Gauss_Legendre() { // case 57:
 	pattern2 := regexp.MustCompile(`(?s)AMFGauss_LegendreB.*?`) // Create a regular expression that matches the second flag anywhere in the line
 	doTheRest(pattern1, pattern2, "37_Gauss_Legendre.go")
 }
+func ShowMonteCarlo() { // case 36:
+	pattern1 := regexp.MustCompile(`(?s)MonteA.*?`) // Create a regular expression that matches the first flag anywhere in the line
+	pattern2 := regexp.MustCompile(`(?s)MonteB.*?`) // Create a regular expression that matches the second flag anywhere in the line
+	doTheRest(pattern1, pattern2, "16_MonteCarloMethod.go")
+}
 func ShowArchimedesBig() { // case 34:
 	pattern1 := regexp.MustCompile(`(?s)AMFArchimedesBigA.*?`) // Create a regular expression that matches the first flag anywhere in the line
 	pattern2 := regexp.MustCompile(`(?s)AMFArchimedesBigB.*?`) // Create a regular expression that matches the second flag anywhere in the line
@@ -120,9 +125,9 @@ func ShowdeleteAllLogFiles() { // case 20999:
 }
 
 // As explained above, the var filenameOfThisFile used to be the pathname of the one single massive file main.go, requiring all this pattern matching.
-// func doTheRest(pattern1 *regexp.Regexp, pattern2 *regexp.Regexp, file *os.File) {  // decided that it would not be prudent to pass the file handle
-func doTheRest(pattern1 *regexp.Regexp, pattern2 *regexp.Regexp, filenameOfThisFile string) { // better to pass the name of the file instead
-	file, err := os.Open(filenameOfThisFile) // create a handle to our file
+// func doTheRest(pattern1 *regexp.Regexp, pattern2 *regexp.Regexp, file *os.File) {  // Decided that it would not be prudent to pass the file handle
+func doTheRest(pattern1 *regexp.Regexp, pattern2 *regexp.Regexp, filenameOfThisFile string) { // Better to pass the name of the file instead
+	file, err := os.Open(filenameOfThisFile) // Create a handle to our file
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -146,7 +151,7 @@ func doTheRest(pattern1 *regexp.Regexp, pattern2 *regexp.Regexp, filenameOfThisF
 			break // we break to stop reading or printing additional lines
 		}
 		// deal with the case of having already found and printed the line containing the first flag
-		// print the line following the line containing the first flag, and all interviening lines
+		// print the line following the line containing the first flag, and all intervening lines
 		if alreadyFoundFirstTag {
 			fmt.Println(colorCyan, line)
 			continue // read another line
