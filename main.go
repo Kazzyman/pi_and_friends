@@ -60,16 +60,12 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 	filenameOfThisFile10 := "/Users/quasar/pi-main/10_ErdosBorwein.go"
 	totalLines10, nonEmptyLines10 := reportSLOCstats(filenameOfThisFile10) // another locally-defined func; returns, and creates, local values of predetermined type
 
-	/*
-		// todo: need to add tags in 11_display_pythagorean.go
-		filenameOfThisFile11 := "/Users/quasar/pi-main/11_display_pythagorean.go"
-		totalLines11, nonEmptyLines11 := reportSLOCstats(filenameOfThisFile11) // another locally-defined func; returns, and creates, local values of predetermined type
-
-	*/
+	filenameOfThisFile11 := "/Users/quasar/pi-main/11_display_pythagorean.go"
+	totalLines11, nonEmptyLines11 := reportSLOCstats(filenameOfThisFile11) // another locally-defined func; returns, and creates, local values of predetermined type
 
 	filenameOfThisFile14 := "/Users/quasar/pi-main/14_ArchimedesBig.go"
 	totalLines14, nonEmptyLines14 := reportSLOCstats(filenameOfThisFile14) // another locally-defined func; returns, and creates, local values of predetermined type
-	
+
 	filenameOfThisFile15 := "/Users/quasar/pi-main/15_chud.go"
 	totalLines15, nonEmptyLines15 := reportSLOCstats(filenameOfThisFile15) // another locally-defined func; returns, and creates, local values of predetermined type
 
@@ -78,17 +74,6 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 
 	filenameOfThisFile18 := "/Users/quasar/pi-main/18_x_root_of_y.go"
 	totalLines18, nonEmptyLines18 := reportSLOCstats(filenameOfThisFile18) // another locally-defined func; returns, and creates, local values of predetermined type
-
-	/*
-		// Check the file descriptor limits
-		var rLimit18 syscall.Rlimit
-		err18 := syscall.Getrlimit(syscall.RLIMIT_NOFILE, &rLimit18)
-		if err18 != nil {
-			log.Fatalf("Error getting file descriptor limit after 18: %v\n", err18)
-		}
-		fmt.Printf("Current file descriptor limit: %d\n", rLimit18.Cur)
-
-	*/
 
 	filenameOfThisFile19 := "/Users/quasar/pi-main/19_TheSpigot.go"
 	totalLines19, nonEmptyLines19 := reportSLOCstats(filenameOfThisFile19) // another locally-defined func; returns, and creates, local values of predetermined type
@@ -111,12 +96,8 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 	filenameOfThisFile50 := "/Users/quasar/pi-main/50_compareFloat64withBigFloats.go"
 	totalLines50, nonEmptyLines50 := reportSLOCstats(filenameOfThisFile50) // another locally-defined func; returns, and creates, local values of predetermined type
 
-	/*
-		// todo: need to add tags in 96_using_this_app.go
-		filenameOfThisFile96 := "/Users/quasar/pi-main/96_using_this_app.go"
-		totalLines96, nonEmptyLines96 := reportSLOCstats(filenameOfThisFile96) // another locally-defined func; returns, and creates, local values of predetermined type
-
-	*/
+	filenameOfThisFile96 := "/Users/quasar/pi-main/96_using_this_app.go"
+	totalLines96, nonEmptyLines96 := reportSLOCstats(filenameOfThisFile96) // another locally-defined func; returns, and creates, local values of predetermined type
 
 	filenameOfThisFile180 := "/Users/quasar/pi-main/180_x_root_of_y_Continuous.go"
 	totalLines180, nonEmptyLines180 := reportSLOCstats(filenameOfThisFile180) // another locally-defined func; returns, and creates, local values of predetermined type
@@ -124,12 +105,8 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 	filenameOfThisFileDAF := "/Users/quasar/pi-main/deleteAllLogFiles.go"
 	totalLinesDAF, nonEmptyLinesDAF := reportSLOCstats(filenameOfThisFileDAF) // another locally-defined func; returns, and creates, local values of predetermined type
 
-	/*
-		// todo: need to add tags in globals_const.go
-		filenameOfThisFileGC := "/Users/quasar/pi-main/globals_const.go"
-		totalLinesGC, nonEmptyLinesGC := reportSLOCstats(filenameOfThisFileGC) // another locally-defined func; returns, and creates, local values of predetermined type
-
-	*/
+	filenameOfThisFileGC := "/Users/quasar/pi-main/globals_const.go"
+	totalLinesGC, nonEmptyLinesGC := reportSLOCstats(filenameOfThisFileGC) // another locally-defined func; returns, and creates, local values of predetermined type
 
 	filenameOfThisFileMenu := "/Users/quasar/pi-main/menu.go"
 	totalLinesMenu, nonEmptyLinesMenu := reportSLOCstats(filenameOfThisFileMenu) // another locally-defined func; returns, and creates, local values of predetermined type
@@ -137,56 +114,41 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 	filenameOfThisFileMenuElements := "/Users/quasar/pi-main/menu_elements.go"
 	totalLinesMenuElements, nonEmptyLinesMenuElements := reportSLOCstats(filenameOfThisFileMenuElements) // another locally-defined func; returns, and creates, local values of predetermined type
 
-	/*
-		// todo: need to add tags in menu_switch.go
-		filenameOfThisFileMenuSwitch := "/Users/quasar/pi-main/menu_switch.go"
-		totalLinesMenuSwitch, nonEmptyLinesMenuSwitch := reportSLOCstats(filenameOfThisFileMenuSwitch) // another locally-defined func; returns, and creates, local values of predetermined type
-
-	*/
+	filenameOfThisFileMenuSwitch := "/Users/quasar/pi-main/menu_switch.go"
+	totalLinesMenuSwitch, nonEmptyLinesMenuSwitch := reportSLOCstats(filenameOfThisFileMenuSwitch) // another locally-defined func; returns, and creates, local values of predetermined type
 
 	filenameOfThisFilePR := "/Users/quasar/pi-main/printResultStatsLong.go"
 	totalLinesPR, nonEmptyLinesPR := reportSLOCstats(filenameOfThisFilePR) // another locally-defined func; returns, and creates, local values of predetermined type
 
-	/*
-		// todo: need to add tags in show_code.go
-		filenameOfThisFileSC := "/Users/pi-main/quasar/show_code.go"
-		totalLinesSC, nonEmptyLinesSC := reportSLOCstats(filenameOfThisFileSC) // another locally-defined func; returns, and creates, local values of predetermined type
-
-	*/
+	filenameOfThisFileSC := "/Users/quasar/pi-main/show_code.go"
+	totalLinesSC, nonEmptyLinesSC := reportSLOCstats(filenameOfThisFileSC) // another locally-defined func; returns, and creates, local values of predetermined type
 
 	totalLines := totalLines1 + totalLines2 + totalLines5 + totalLines6 + totalLines7 + totalLines8 + totalLines9 +
-		totalLines10 + totalLines14 + totalLines15 + totalLines16 +
-		+totalLines18 + totalLines19 +
+		totalLines10 + totalLines14 + totalLines15 + totalLines16 + nonEmptyLines96 + totalLines11 +
+		+totalLines18 + totalLines19 + totalLines96 +
 		totalLines37 + totalLines40 + totalLines41 +
 		totalLines42 + totalLines44 + totalLines50 +
 		totalLines180 + totalLinesDAF + totalLinesMenu + totalLinesMenuElements +
-		totalLinesPR
+		totalLinesPR + totalLinesGC + totalLinesMenuSwitch + totalLinesSC
 
 	nonEmptyLines := nonEmptyLines1 + nonEmptyLines2 + nonEmptyLines5 + nonEmptyLines6 + nonEmptyLines7 + nonEmptyLines8 + nonEmptyLines9 +
-		nonEmptyLines10 + nonEmptyLines14 + nonEmptyLines15 + nonEmptyLines16 +
+		nonEmptyLines10 + nonEmptyLines14 + nonEmptyLines15 + nonEmptyLines16 + nonEmptyLines11 +
 		nonEmptyLines18 + nonEmptyLines19 +
 		nonEmptyLines37 + nonEmptyLines40 + nonEmptyLines41 +
 		nonEmptyLines42 + nonEmptyLines44 + nonEmptyLines50 +
 		nonEmptyLines180 + nonEmptyLinesDAF + nonEmptyLinesMenu + nonEmptyLinesMenuElements +
-		nonEmptyLinesPR
+		nonEmptyLinesPR + nonEmptyLinesGC + nonEmptyLinesMenuSwitch + nonEmptyLinesSC
 
 	//
 	// The following is for menu header data generation (inception: stripped file name) //  <<------------ below ---------<<
-	// ... there should be exactly nine of each comment tag in this dev Windows ver
-	// /* Unix variant
-	re2 := regexp.MustCompile(`Unix-(.+)\.go`)
-	// Unix variant */
-	//
-	/* Windows variant
-	    re2 := regexp.MustCompile(`win-(.+)\.go`)
-	Windows variant */
-
-	match2 := re2.FindStringSubmatch(filenameOfThisFile) // grab the stuff between win- and .go (or Unix- and .go) in the name of this file
-	SansVerOfNameOfThisFile := "pi-main"                 // this var, having been initialize to "string", is of type string
+	re2 := regexp.MustCompile(`/Users(.+)\.go`)
+	match2 := re2.FindStringSubmatch(filenameOfThisFile)      // grab the stuff between win- and .go (or Unix- and .go) in the name of this file
+	SansVerOfNameOfThisFile := "pi-main-preset-to-create-var" // this var, having been initialize to "string", is of type string
 	if len(match2) >= 2 {
 
 		// /* Unix variant
-		SansVerOfNameOfThisFile = match2[1] // Unix SansVerOfNameOfThisFile is loaded with our base file name
+		SansVerOfNameOfThisFile = match2[1] // Trims off the /Users prefix from file name
+		// fmt.Printf("we got : %s from match2", SansVerOfNameOfThisFile) //
 		// Unix variant */
 		//
 		/* Windows variant
@@ -195,6 +157,7 @@ func main() { // top-level program logic flow -- explore several ways to calcula
 
 	} else {
 		fmt.Println("SansVerOfNameOfThisFile via match2 not found in main")
+		fmt.Printf("we got : %s from match2", SansVerOfNameOfThisFile)
 	}
 
 	for {
