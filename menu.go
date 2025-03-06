@@ -92,7 +92,7 @@ func DisplayMenus(totalLines, nonEmptyLines int, filenameOfThisFile, SansVerOfNa
 			colorReset)
 		fmt.Println("42:", colorGreen, "Pi:", colorReset, "BBP formula to 46 digits")
 		fmt.Println("44:", colorGreen, "Pi:", colorReset, "via Leibniz method in one billion iterations [runs a while]")
-		fmt.Printf("50:  %sPi:%s  comparison of float64 %svs%s big.Float types%s \n\n", colorGreen, colorCyan, colorYellow, colorCyan, colorReset)
+		fmt.Printf("50:  %sPi:%s  compare float64 %svs%s big.Float types; using Nilakantha Somayaji%s \n\n", colorGreen, colorCyan, colorYellow, colorCyan, colorReset)
 
 		fmt.Println(colorYellow, "12: Display Stats and Utilities Menu  ")
 
