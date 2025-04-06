@@ -167,9 +167,9 @@ func printResultStatsLongComp(sumBig *big.Float, iterBig int, precision int) {
 	stringOfSum := sumBig.Text('f', 160) // create a string version of a big result, 700 some odd chars in length
 
 	fmt.Printf("\n\npi as calculated per big.Floats is: %0.76f \n", sumBig)
-	fmt.Println("                                                   ^ ")
+	fmt.Println("                                                       ^ ")
 	fmt.Println("                                    1 234567890123456789012345678901234567890123456789012345")
-	fmt.Println("                                             10    |   20        30        40        50     ")
+	fmt.Println("                                             10        20        30        40        50     ")
 	fmt.Printf("pi from the web is:                 %s \n", piAs100chars)
 
 	posInPi := 0               // to be the incremented offset : piChar = piAs86chars[posInPi]

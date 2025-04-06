@@ -54,7 +54,7 @@ func xRootOfy(selection int) { // calculates either square or cube root of any i
 
 	// All of the remaining sections are conditional for workpiece NOT being a perfect square or cube
 	if perfectResult2 == 0 && perfectResult3 == 0 { // Then, it was NOT a perfect square or cube, so handle that case
-		// the remaining sections are only reached after having exited the primary for loop above via a break statement or an exaustive reading of the table ------------
+		// the remaining sections are only reached after having exited the primary for loop above via a break statement or an exhaustive reading of the table ------------
 		// ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 		// calculate elapsed time
 		t_s2 := time.Now()
@@ -203,7 +203,7 @@ func readTheTableOfPP(index int, startBeforeCall time.Time, radical_index int) {
 	smallerPerfectProductOnce := Table_of_perfect_Products[index]
 	// ... and save it locally, do this just-once per func call. // ... index may be 0 up to 380,000
 	RootOfsmallerPerfectProductOnce := Table_of_perfect_Products[index+1]
-	// ^^^ also read the root wich corresponds
+	// ^^^ also read the root which corresponds
 
 	iter := 0
 	for iter < 410000 { // 410,000 loops. Why do we need so many?, Because we need to read through 825,000 table entries pairs
